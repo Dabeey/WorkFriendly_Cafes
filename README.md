@@ -1,10 +1,9 @@
 # ☕ WorkFriendly Cafés
 
-![App Screenshot](screenshot.png)
-
 A modern web app to discover cafés with reliable WiFi, power outlets, and work-friendly environments. Built with Python Flask and Bootstrap 5.
 
-![App Screenshot](https://i.imgur.com/JK9xk8h.png)
+![App Screenshot](screenshot.png)
+
 
 ## ✨ Features
 
@@ -27,7 +26,7 @@ A modern web app to discover cafés with reliable WiFi, power outlets, and work-
 | Frontend       | Bootstrap 5, HTML5, CSS3, JavaScript |
 | Backend        | Python Flask |
 | Database       | SQLite |
-| Deployment     | Render/Vercel |
+| Deployment     | Github |
 
 ## 🚀 Installation
 
@@ -54,15 +53,15 @@ A modern web app to discover cafés with reliable WiFi, power outlets, and work-
 
 
 ## 🤝 How to Contribute
-Fork the project
+- Fork the project
 
-Create your feature branch (git checkout -b feature/AmazingFeature)
+- Create your feature branch (git checkout -b feature/AmazingFeature)
 
-Commit your changes (git commit -m 'Add some amazing feature')
+- Commit your changes (git commit -m 'Add some amazing feature')
 
-Push to the branch (git push origin feature/AmazingFeature)
+- Push to the branch (git push origin feature/AmazingFeature)
 
-Open a Pull Request
+- Open a Pull Request
 
 ## 📜 License
 Distributed under the MIT License. See LICENSE for more information.
