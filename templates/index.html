@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section text-center rounded-3">
+    <div class="container">
+        <h1 class="display-4 fw-bold mb-4">Find Your Perfect Workspace</h1>
+        <p class="lead mb-5">Discover cafés with great WiFi, power outlets, and work-friendly environments</p>
+        
+        <!-- Search Bar -->
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="input-group mb-5 shadow-lg">
+                    <input type="text" class="form-control form-control-lg" placeholder="Search by location or café name...">
+                    <button class="btn btn-primary" type="button">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Filter Buttons -->
+<div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+    <button class="btn btn-outline-primary active">All</button>
+    <button class="btn btn-outline-primary">
+        <i class="fas fa-plug"></i> Power
+    </button>
+    <button class="btn btn-outline-primary">
+        <i class="fas fa-wifi"></i> WiFi
+    </button>
+    <button class="btn btn-outline-primary">
+        <i class="fas fa-toilet"></i> Toilet
+    </button>
+    <button class="btn btn-outline-primary">
+        <i class="fas fa-phone"></i> Calls
+    </button>
+</div>
+
+<!-- Café Grid -->
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    {% for cafe in cafes %}
+    <div class="col">
+        <div class="cafe-card card h-100">
+            {% if cafe.img_url %}
+            <img src="{{ cafe.img_url }}" class="card-img-top" alt="{{ cafe.name }}" style="height: 200px; object-fit: cover;">
+            {% else %}
+            <div class="card-img-top bg-secondary d-flex align-items-center justify-content-center" style="height: 200px;">
+                <i class="fas fa-mug-hot fa-4x text-white"></i>
+            </div>
+            {% endif %}
+            
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                    <h5 class="card-title fw-bold mb-0">{{ cafe.name }}</h5>
+                    <span class="badge bg-success">
+                        {{ cafe.coffee_price or "₦---" }}
+                    </span>
+                </div>
+                
+                <p class="text-muted mb-3">
+                    <i class="fas fa-map-marker-alt text-danger"></i> {{ cafe.location }}
+                </p>
+                
+                <!-- Amenities -->
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                    <span class="amenity-badge badge rounded-pill">
+                        <i class="fas fa-plug"></i> {{ "Yes" if cafe.has_sockets else "No" }}
+                    </span>
+                    <span class="amenity-badge badge rounded-pill">
+                        <i class="fas fa-wifi"></i> {{ "Yes" if cafe.has_wifi else "No" }}
+                    </span>
+                    <span class="amenity-badge badge rounded-pill">
+                        <i class="fas fa-toilet"></i> {{ "Yes" if cafe.has_toilet else "No" }}
+                    </span>
+                    <span class="amenity-badge badge rounded-pill">
+                        <i class="fas fa-phone"></i> {{ "Yes" if cafe.can_take_calls else "No" }}
+                    </span>
+                </div>
+                
+                <p class="card-text">
+                    <i class="fas fa-chair"></i> Seats: {{ cafe.seats or "Not specified" }}
+                </p>
+            </div>
+            
+            <div class="card-footer bg-white border-0">
+                <a href="{{ cafe.map_url }}" target="_blank" class="btn btn-sm btn-outline-primary me-2">
+                    <i class="fas fa-map-marked-alt"></i> View Map
+                </a>
+                <button class="btn btn-sm btn-outline-secondary">
+                    <i class="far fa-heart"></i> Save
+                </button>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Add Café Button -->
+<div class="text-center mt-5">
+    <a href="/add" class="btn btn-primary btn-lg px-4">
+        <i class="fas fa-plus-circle"></i> Add New Café
+    </a>
+</div>
+{% endblock %}

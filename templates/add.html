@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">Add New Café</h4>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="row g-3">
+                        <!-- Left Column -->
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Café Name</label>
+                                <input type="text" class="form-control" name="name" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Location (Address)</label>
+                                <input type="text" class="form-control" name="location" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Google Maps URL</label>
+                                <input type="url" class="form-control" name="map_url" placeholder="https://goo.gl/maps/...">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Image URL</label>
+                                <input type="url" class="form-control" name="img_url" placeholder="https://example.com/image.jpg">
+                            </div>
+                        </div>
+                        
+                        <!-- Right Column -->
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Amenities</label>
+                                <div class="form-check form-switch mb-2">
+                                    <input class="form-check-input" type="checkbox" name="has_sockets" id="has_sockets">
+                                    <label class="form-check-label" for="has_sockets">Power Outlets</label>
+                                </div>
+                                <div class="form-check form-switch mb-2">
+                                    <input class="form-check-input" type="checkbox" name="has_wifi" id="has_wifi">
+                                    <label class="form-check-label" for="has_wifi">WiFi Available</label>
+                                </div>
+                                <div class="form-check form-switch mb-2">
+                                    <input class="form-check-input" type="checkbox" name="has_toilet" id="has_toilet">
+                                    <label class="form-check-label" for="has_toilet">Toilet Available</label>
+                                </div>
+                                <div class="form-check form-switch mb-2">
+                                    <input class="form-check-input" type="checkbox" name="can_take_calls" id="can_take_calls">
+                                    <label class="form-check-label" for="can_take_calls">Can Take Calls</label>
+                                </div>
+                            </div>
+                            
+                            <div class="row g-2">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Seats (Capacity)</label>
+                                    <input type="text" class="form-control" name="seats" placeholder="e.g., 20-30">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Coffee Price</label>
+                                    <input type="text" class="form-control" name="coffee_price" placeholder="e.g., ₦1,500">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid gap-2 mt-4">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Submit Café
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
