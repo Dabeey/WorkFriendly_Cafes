@@ -1,5 +1,7 @@
 # ☕ WorkFriendly Cafés
 
+![App Screenshot](screenshot.png)
+
 A modern web app to discover cafés with reliable WiFi, power outlets, and work-friendly environments. Built with Python Flask and Bootstrap 5.
 
 ![App Screenshot](https://i.imgur.com/JK9xk8h.png)
